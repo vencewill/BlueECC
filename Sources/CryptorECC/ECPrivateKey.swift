@@ -54,12 +54,12 @@ public class ECPrivateKey {
     public let pemString: String
     
     #if os(Linux)
-        typealias NativeKey = OpaquePointer?
+    public typealias NativeKey = OpaquePointer?
         deinit { EC_KEY_free(.make(optional: self.nativeKey)) }
     #else
-        typealias NativeKey = SecKey
+    public typealias NativeKey = SecKey
     #endif
-    let nativeKey: NativeKey
+    public let nativeKey: NativeKey
     let pubKeyBytes: Data
     private var stripped: Bool = false
 

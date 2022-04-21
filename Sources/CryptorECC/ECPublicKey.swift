@@ -53,13 +53,13 @@ public class ECPublicKey {
     /// The `EllipticCurve` this key was generated from.
     public let curve: EllipticCurve
     #if os(Linux)
-    typealias NativeKey = OpaquePointer?
-    let pubKeyBytes: Data
+    public typealias NativeKey = OpaquePointer?
+    public let pubKeyBytes: Data
     deinit { EC_KEY_free(.make(optional: self.nativeKey)) }
     #else
-    typealias NativeKey = SecKey
+    public typealias NativeKey = SecKey
     #endif
-    let nativeKey: NativeKey
+    public let nativeKey: NativeKey
     
     /// The public key represented as a PEM String.
     public let pemString: String
