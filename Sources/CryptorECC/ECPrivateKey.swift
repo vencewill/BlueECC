@@ -60,7 +60,7 @@ public class ECPrivateKey {
     public typealias NativeKey = SecKey
     #endif
     public let nativeKey: NativeKey
-    let pubKeyBytes: Data
+    public let pubKeyBytes: Data
     private var stripped: Bool = false
 
 
