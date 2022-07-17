@@ -312,7 +312,7 @@ public class ECPrivateKey {
     }
     
     /// Decode this ECPrivateKey to it's PEM format
-    private static func decodeToPEM(nativeKey: NativeKey, curve: EllipticCurve) throws -> String {
+    static func decodeToPEM(nativeKey: NativeKey, curve: EllipticCurve) throws -> String {
         #if os(Linux)
             let asn1Bio = BIO_new(BIO_s_mem())
             defer { BIO_free_all(asn1Bio) }
